@@ -1,4 +1,4 @@
-### Live Demo - Click here [Covtrack](https://github.com/kattycreates/covtrack)
+### Live Demo - Click here [Covtrack](https://covtrack-nine.vercel.app/)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
