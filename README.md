@@ -1,6 +1,12 @@
+### Live Demo - Click here [Covtrack](https://github.com/kattycreates/covtrack)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Steps to run the app locally
+1) Clone the repo using 'git clone repo-url' 
+2) Install all the packages and dependencies in package.json using 'npm install'
+3) Run the command 'npm start' to start the app
 
 ## Available Scripts
 
