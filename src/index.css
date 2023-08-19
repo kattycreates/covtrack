@@ -88,6 +88,6 @@ canvas {
     "a c"
     "a f";
   height: calc(100vh - 2em);
-  width: calc(100vw - 2em); /* not necessary, but just to be explicit */
+  width: calc(100vw - 2em);
   margin: 1em;
 }

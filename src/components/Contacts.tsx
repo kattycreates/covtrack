@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ContactItem from "./ContactItem";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 type Props = {};
 
 const Contacts = (props: Props) => {
   const contacts: IContact[] = useSelector(
     (state: ContactState) => state.contacts
   );
+  const [modalOpen, setModalOpen] = useState(false);
+  const [contactData, setContactData] = useState({});
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
 
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center ">
       <div>
         <Button
           label="Create Contact"
@@ -46,9 +52,25 @@ const Contacts = (props: Props) => {
       )}
       <div className="flex flex-wrap justify-center mt-5 ">
         {contacts.map((contact: IContact, index: number) => (
-          <ContactItem contactData={contact} key={index} navigate={navigate} />
+          <ContactItem
+            contactData={contact}
+            key={index}
+            navigate={navigate}
+            toggleModal={toggleModal}
+            setContactData={setContactData}
+          />
         ))}
       </div>
+      {modalOpen && (
+        <div
+          className="absolute left-0 top-0 w-full h-full z-10  flex justify-center items-center z-[10000]"
+          style={{
+            backgroundColor: "rgba(8, 47, 73, 0.2)",
+          }}
+        >
+          <Modal toggleModal={toggleModal} contactData={contactData} />
+        </div>
+      )}
     </div>
   );
 };

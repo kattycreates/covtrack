@@ -4,9 +4,12 @@ import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
 import { removeContact } from "../redux/actionCreators";
 import { NavigateFunction } from "react-router-dom";
+
 type Props = {
   contactData: IContact;
   navigate: NavigateFunction;
+  toggleModal: () => void;
+  setContactData: React.Dispatch<React.SetStateAction<IContact>>;
 };
 
 const ContactItem = (props: Props) => {
@@ -18,6 +21,10 @@ const ContactItem = (props: Props) => {
   };
   const deleteContact = () => {
     dispatch(removeContact(props.contactData));
+  };
+  const viewContact = () => {
+    props.setContactData(props.contactData);
+    props.toggleModal();
   };
   return (
     <div className="\w-1/4 p-2">
@@ -34,10 +41,13 @@ const ContactItem = (props: Props) => {
           </p>
         </div>
         <div className="flex justify-between gap-2">
-          <div className="w-1/2">
+          <div className="w-1/3">
+            <Button type="button" label="View" handleClick={viewContact} />
+          </div>
+          <div className="w-1/3">
             <Button type="button" label="Edit" handleClick={editContact} />
           </div>
-          <div className="w-1/2">
+          <div className="w-1/3">
             <Button type="button" label="Delete" handleClick={deleteContact} />
           </div>
         </div>

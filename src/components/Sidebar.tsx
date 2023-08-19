@@ -10,7 +10,7 @@ const Sidebar = (props: Props) => {
     <div className="mt-[72px]">
       <aside
         id="default-sidebar"
-        className={`fixed top-150 z-[99] left-0  w-64 h-screen transition-transform ${
+        className={`fixed top-150 z-[9999] left-0  w-64 h-screen transition-transform ${
           props.sidebarOpen ? "" : "-translate-x-full"
         } sm:translate-x-0`}
         aria-label="Sidebar"

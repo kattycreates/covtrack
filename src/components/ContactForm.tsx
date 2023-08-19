@@ -20,6 +20,10 @@ const ContactForm = (props: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (firstName === "" || lastName === "") {
+      window.alert("Please enter all fields!");
+      return;
+    }
     const newContact = {
       firstName,
       lastName,

@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 interface Props {}
 
 const Map = (props: Props) => {
-  const { isLoading, error, data } = useQuery("countryData", () =>
+  const { data } = useQuery("countryData", () =>
     fetch("https://disease.sh/v3/covid-19/countries").then((res) => res.json())
   );
   const modifyData = (data: Array<any>) => {
@@ -34,7 +34,6 @@ const Map = (props: Props) => {
         ? allData
         : allData.filter((data: any) => data.country === country);
     if (countryData) {
-      console.log("country", countryData);
       setMapCountries(countryData);
       setZoom(4);
       setCenter({
